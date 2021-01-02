@@ -10,33 +10,14 @@ export default () => {
     <Routes.Navigator headerMode={null} initialRouteName="Start">
       <Routes.Screen name="Start" component={Screens.Start} />
       <Routes.Screen name="Login" component={Screens.Login} />
-      {/* <Routes.Screen name="Signup" component={Screens.SignUp} />
-      <Routes.Screen name="ForgotPassword" component={Screens.ForgotPassword} />
-      <Routes.Screen name="ResetPassword" component={Screens.ResetPassword} /> */}
-      {/* <Routes.Screen 
-          name="ResetPassword" 
-          component={Screens.ResetPassword} 
-        />
-        <Routes.Screen 
-          name="Success" 
-          component={Screens.Success} 
-        />
-        <Routes.Screen 
-          name="VerifyEmail" 
-          component={Screens.VerifyEmail} 
-        />
-        <Routes.Screen 
-          name="ReceiveNotification" 
-          component={Screens.ReceiveNotification} 
-        />
-        <Routes.Screen 
-          name="ChangePassword" 
-          component={Screens.ChangePassword} 
-        />
-        <Routes.Screen 
-          name="ChangePasswordSuccess" 
-          component={Screens.ChangePasswordSuccess} 
-        /> */}
+      <Routes.Screen name="Signup" component={Screens.SignUp} />
+      <Routes.Screen name="SignUpTwo" component={Screens.SignUpTwo} />
+      <Routes.Screen name="SignUpThree" component={Screens.SignUpThree} />
+      <Routes.Screen name="SignUpFour" component={Screens.SignUpFour} />
+      <Routes.Screen name="SignUpFourTwo" component={Screens.SignUpFourTwo} />
+      <Routes.Screen name="SignUpFive" component={Screens.SignUpFive} />
+      <Routes.Screen name="Selfie" component={Screens.Selfie} />
+      <Routes.Screen name="SuccessPage" component={Screens.SuccessPage} />
     </Routes.Navigator>
   );
 };

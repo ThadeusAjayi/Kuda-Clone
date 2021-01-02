@@ -65,11 +65,11 @@ const styles = StyleSheet.create({
       paddingHorizontal: 0,
   },
   inputContainerStyle: {
-    marginVertical: RF(10), // For testing
+    marginVertical: RF(4), // For testing
     borderRadius: RF(4),
     borderWidth: 0,
     borderBottomWidth: 0,
-    backgroundColor: '#2c2c2c'
+    backgroundColor: Colors.inputBack
   },
   inputStyle: {
       color: Colors.white,

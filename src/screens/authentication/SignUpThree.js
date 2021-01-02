@@ -19,6 +19,7 @@ import Input from '../../components/Input';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 export default ({navigation}) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -39,45 +40,47 @@ export default ({navigation}) => {
                 style={{left: -20}}
               />
             </TouchableOpacity>
-            <Text.BookText customstyle={styles.pager}>1/6</Text.BookText>
+            <Text.BookText customstyle={styles.pager}>3/6</Text.BookText>
           </View>
-          <Text.HeavyText customstyle={[styles.textMargin, styles.headText]}>Start</Text.HeavyText>
-          <Text.RomanText customstyle={[styles.textMargin]}>Open a Kuda account with a few details.</Text.RomanText>
-          <Text.RomanText customstyle={[styles.textMargin]}>Your password must have at least 8 characters including letters and a number.</Text.RomanText>
-          <Input placeHolder="Email Address" />
-          <Input
-            placeHolder="Enter Password"
-            secureTextEntry={!showPassword}
-            rightButtonAction={() => setShowPassword(!showPassword)}
-            rightIcon={
-              <Ionicons
-                name={showPassword ? 'eye-outline' : 'eye-off-outline'}
+          <Text.HeavyText customstyle={[styles.textMargin, styles.headText]}>
+            What's Your BVN
+          </Text.HeavyText>
+          <Text.RomanText customstyle={[styles.textMargin, styles.subText]}>
+            We need your Bank Verification Number (BVN) to confirm who you are.
+          </Text.RomanText>
+          <Text.RomanText customstyle={[styles.textMargin, styles.subText]}>
+            We will send a code to the phone number linked to your BVN. If you
+            do not have access to that phone number, skip this step.
+          </Text.RomanText>
+          <Input placeHolder="Your BVN" />
+          <TouchableOpacity style={styles.whyContainer} activeOpacity={0.7}>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <FontAwesome name="lock" color={Colors.white} size={25} />
+              <Text.HeavyText customstyle={styles.why}>
+                Why we need your BVN
+              </Text.HeavyText>
+              <MaterialIcons
+                name="keyboard-arrow-right"
                 color={Colors.white}
-                size={25}
+                size={40}
               />
-            }
-          />
-          <Input
-            placeHolder="Re-Enter Password"
-            secureTextEntry={!showPassword2}
-            rightButtonAction={() => setShowPassword2(!showPassword2)}
-            rightIcon={
-              <Ionicons
-                name={showPassword2 ? 'eye-outline' : 'eye-off-outline'}
-                color={Colors.white}
-                size={25}
-              />
-            }
-          />
-          <Input
-            placeHolder="Referral Code (Optional)"
-          />
-
-          <Text.BookText customstyle={[styles.center, styles.bottom]}>For information on what we do with your data, please read our<Text.BookText customstyle={styles.privacy}> Sign In</Text.BookText></Text.BookText>
-      
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            activeOpacity={0.7}
+            onPress={() => navigation.navigate('SignUpTwo')}>
+            <Text.HeavyText
+              customstyle={{
+                color: Colors.accent,
+                textAlign: 'center',
+                marginTop: RF(50),
+              }}>
+              Skip this step
+            </Text.HeavyText>
+          </TouchableOpacity>
         </KeyboardAvoidingView>
       </ScrollView>
-          <Button onPress={() => navigation.navigate("SignUpThree")} buttonStyle={styles.button}>Continue</Button>
+      <Button onPress={() => navigation.navigate("SignUpTwo")} buttonStyle={styles.button}>Next</Button>
     </SafeAreaView>
   );
 };
@@ -105,23 +108,37 @@ const styles = StyleSheet.create({
   },
   headText: {
     marginTop: RF(40),
-    fontSize: RF(18)
+    fontSize: RF(20),
   },
   textMargin: {
     marginBottom: RF(10),
   },
   center: {
-    textAlign: 'center'
+    textAlign: 'center',
   },
   privacy: {
-    color: Colors.accent
+    color: Colors.accent,
   },
   bottom: {
-    marginTop: RF(30)
+    marginTop: RF(30),
   },
   button: {
     marginTop: RF(150),
+    // marginHorizontal: RF(20),
+    width: '90%',
     alignSelf: 'center',
-    width: "90%"
+  },
+  subText: {
+    fontSize: RF(14),
+  },
+  whyContainer: {
+    padding: RF(15),
+    backgroundColor: Colors.inputBack,
+    borderRadius: RF(4),
+    marginTop: RF(10),
+  },
+  why: {
+    flex: 1,
+    paddingHorizontal: RF(20),
   },
 });

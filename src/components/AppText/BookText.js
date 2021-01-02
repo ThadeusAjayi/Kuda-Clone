@@ -15,6 +15,6 @@ const styles = StyleSheet.create({
   defaultStyles: {
     fontFamily: "Avenir-Book",
     fontSize: RF(16),
-    color: Colors.black
+    color: Colors.white
   }
 });

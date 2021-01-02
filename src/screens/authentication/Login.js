@@ -47,7 +47,7 @@ export default ({navigation}) => {
           />
           <Button buttonStyle={styles.button}>Next</Button>
 
-          <Text.HeavyText customstyle={{color: Colors.accent, textAlign: "center", }}>Change Password</Text.HeavyText>
+          <Text.HeavyText customstyle={{color: Colors.accent, textAlign: "center"}}>Change Password</Text.HeavyText>
         </KeyboardAvoidingView>
       </ScrollView>
     </SafeAreaView>

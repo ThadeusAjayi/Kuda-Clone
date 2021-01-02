@@ -19,9 +19,10 @@ import Input from '../../components/Input';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 export default ({navigation}) => {
-  const [showPassword, setShowPassword] = useState(false);
+  const [gender, setGender] = useState(1);
   const [showPassword2, setShowPassword2] = useState(false);
   return (
     <SafeAreaView style={[styles.background]}>
@@ -39,45 +40,35 @@ export default ({navigation}) => {
                 style={{left: -20}}
               />
             </TouchableOpacity>
-            <Text.BookText customstyle={styles.pager}>1/6</Text.BookText>
+            <Text.BookText customstyle={styles.pager}>4/6</Text.BookText>
           </View>
-          <Text.HeavyText customstyle={[styles.textMargin, styles.headText]}>Start</Text.HeavyText>
-          <Text.RomanText customstyle={[styles.textMargin]}>Open a Kuda account with a few details.</Text.RomanText>
-          <Text.RomanText customstyle={[styles.textMargin]}>Your password must have at least 8 characters including letters and a number.</Text.RomanText>
-          <Input placeHolder="Email Address" />
-          <Input
-            placeHolder="Enter Password"
-            secureTextEntry={!showPassword}
-            rightButtonAction={() => setShowPassword(!showPassword)}
-            rightIcon={
-              <Ionicons
-                name={showPassword ? 'eye-outline' : 'eye-off-outline'}
-                color={Colors.white}
-                size={25}
-              />
-            }
-          />
-          <Input
-            placeHolder="Re-Enter Password"
-            secureTextEntry={!showPassword2}
-            rightButtonAction={() => setShowPassword2(!showPassword2)}
-            rightIcon={
-              <Ionicons
-                name={showPassword2 ? 'eye-outline' : 'eye-off-outline'}
-                color={Colors.white}
-                size={25}
-              />
-            }
-          />
-          <Input
-            placeHolder="Referral Code (Optional)"
-          />
+          <Text.HeavyText customstyle={[styles.textMargin, styles.headText]}>
+            A Bit More About You
+          </Text.HeavyText>
+          <Text.RomanText customstyle={[styles.textMargin, styles.subText]}>
+            We'll love to know you better.
+          </Text.RomanText>
+<View style={{justifyContent: 'space-around', flexDirection: 'row', marginTop: RF(20)}}>
+          <TouchableWithoutFeedback onPress={() => setGender(1)}>
+            <View style={{alignItems: 'center'}}>
+              <View style={[styles.gender, gender == 2 && {backgroundColor: Colors.inputBack}]} />
+              <Text.HeavyText>Male</Text.HeavyText>
+            </View>
+          </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback onPress={() => setGender(2)}>
+            <View style={{alignItems: 'center'}}>
+              <View style={[styles.gender, gender == 1 && {backgroundColor: Colors.inputBack}]} />
+              <Text.HeavyText>Female</Text.HeavyText>
+            </View>
+          </TouchableWithoutFeedback>
+          </View>
 
-          <Text.BookText customstyle={[styles.center, styles.bottom]}>For information on what we do with your data, please read our<Text.BookText customstyle={styles.privacy}> Sign In</Text.BookText></Text.BookText>
-      
+          <View style={{backgroundColor: Colors.inputBack, borderRadius: RF(4), padding: RF(15), alignItems: 'center', marginTop: RF(20)}}>
+            <Text.BookText customstyle={{fontSize: RF(20)}}>Date Of Birth</Text.BookText>
+          </View>
         </KeyboardAvoidingView>
       </ScrollView>
-          <Button onPress={() => navigation.navigate("SignUpThree")} buttonStyle={styles.button}>Continue</Button>
+      <Button onPress={() => navigation.navigate("SignUpFourTwo")} buttonStyle={styles.button}>Continue</Button>
     </SafeAreaView>
   );
 };
@@ -105,23 +96,23 @@ const styles = StyleSheet.create({
   },
   headText: {
     marginTop: RF(40),
-    fontSize: RF(18)
+    fontSize: RF(20),
   },
   textMargin: {
     marginBottom: RF(10),
   },
   center: {
-    textAlign: 'center'
+    textAlign: 'center',
   },
   privacy: {
-    color: Colors.accent
+    color: Colors.accent,
   },
-  bottom: {
-    marginTop: RF(30)
+  gender: {
+    backgroundColor: Colors.accent, height: RF(80), width: RF(80), borderRadius: RF(40),
+    marginBottom: RF(10)
   },
   button: {
-    marginTop: RF(150),
-    alignSelf: 'center',
-    width: "90%"
-  },
+    width: "90%",
+    alignSelf: 'center'
+  }
 });

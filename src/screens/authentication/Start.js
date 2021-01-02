@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     fontSize: RF(30),
   },
   signIn: {
-      color: Colors.accent
+      color: Colors.accent,
   },
   center: {
       textAlign: 'center'

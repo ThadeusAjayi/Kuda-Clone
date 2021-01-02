@@ -42,7 +42,7 @@ const theBottomNav = () => {
         component={AppScreens.Budget}
       />
       <Tab.Screen name="Cards" component={AppScreens.Home} />
-      <Tab.Screen name="More" component={AppScreens.Home} />
+      <Tab.Screen name="More" component={AppScreens.More} />
     </Tab.Navigator>
   );
 };

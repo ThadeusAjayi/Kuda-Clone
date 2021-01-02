@@ -17,7 +17,7 @@ const theBottomNav = () => {
         tabBarIcon: ({focused}) => {
           if (route.name === 'Home') {
             return <Feather name="home" color={focused ? Colors.white : "grey"} size={25}/>
-          } else if (route.name === 'Payment') {
+          } else if (route.name === 'Payments') {
             return <Feather name="send" color={focused ? Colors.white : "grey"} size={25}/>
           } else if (route.name === 'Budget') {
             return <Feather name="clock" color={focused ? Colors.white : "grey"} size={25}/>
@@ -29,17 +29,17 @@ const theBottomNav = () => {
         },
       })}
       tabBarOptions={{
-        showLabel: false,
+        showLabel: true,
         activeTintColor: '#fff',
         style: {
           backgroundColor: Colors.inputBack
         }
       }}>
       <Tab.Screen name="Home" component={AppScreens.Home} />
-      <Tab.Screen name="Payment" component={AppScreens.Home} />
+      <Tab.Screen name="Payments" component={AppScreens.Payments} />
       <Tab.Screen
         name="Budget"
-        component={AppScreens.Home}
+        component={AppScreens.Budget}
       />
       <Tab.Screen name="Cards" component={AppScreens.Home} />
       <Tab.Screen name="More" component={AppScreens.Home} />

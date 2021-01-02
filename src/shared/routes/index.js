@@ -11,7 +11,7 @@ import SplashScreen from 'react-native-splash-screen'
 import { StatusBar, Platform, View } from 'react-native';
 // import OnboardingStack from './OnboardingStack';
 import AuthStack from './AuthStack';
-// import AppNavigation from './AppNavigation';
+import AppNavigation from './AppNavigation';
 
 const Routes = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -37,15 +37,10 @@ export const Stack = () => {
           name="Auth"
           component={AuthStack}  
         />
-        {/* <Routes.Screen 
+        <Routes.Screen 
           name="App"
           component={AppNavigation}   
-        /> */}
-        {/* <Routes.Screen 
-          name="Onboarding" 
-          component={OnboardingStack}  
         />
-        */}
       </Routes.Navigator>
     </NavigationContainer>
   )

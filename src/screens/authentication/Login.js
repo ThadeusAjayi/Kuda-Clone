@@ -19,6 +19,7 @@ import Input from '../../components/Input';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import NavigationService from '../../shared/routes/NavigationService';
 
 export default ({navigation}) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -45,7 +46,7 @@ export default ({navigation}) => {
             rightButtonAction={() => setShowPassword(!showPassword)}
             rightIcon={<Ionicons name={showPassword ? "eye-outline" : "eye-off-outline"} color={Colors.white} size={25} />}
           />
-          <Button buttonStyle={styles.button}>Next</Button>
+          <Button onPress={() => NavigationService.reset("App")} buttonStyle={styles.button}>Next</Button>
 
           <Text.HeavyText customstyle={{color: Colors.accent, textAlign: "center"}}>Change Password</Text.HeavyText>
         </KeyboardAvoidingView>

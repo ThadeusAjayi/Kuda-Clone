@@ -3,26 +3,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Image} from 'react-native';
 import {Colors} from '../theme';
-import * as Icons from '../../assets/Images';
 import * as AppScreens from '../../screens/home/index';
-import {View} from 'react-native-animatable';
-import Test from '../../Test';
-import RF from '../utils/RF';
-
-const ProfileNav = createStackNavigator();
-
-const ProfileStack = () => {
-  return (
-    <ProfileNav.Navigator headerMode="none">
-      <ProfileNav.Screen name="Profile" component={AppScreens.Profile} />
-      <ProfileNav.Screen
-        name="EditProfile"
-        component={AppScreens.EditProfile}
-      />
-      <ProfileNav.Screen name="Settings" component={AppScreens.Settings} />
-    </ProfileNav.Navigator>
-  );
-};
+import Feather from 'react-native-vector-icons/Feather';
 
 //Mark:- Create Tab
 const Tab = createBottomTabNavigator();
@@ -33,61 +15,34 @@ const theBottomNav = () => {
       backBehavior={'initialRoute'}
       screenOptions={({route}) => ({
         tabBarIcon: ({focused}) => {
-          let iconName;
-
           if (route.name === 'Home') {
-            iconName = focused ? Icons.HomeActive : Icons.HomeInactive;
-          } else if (route.name === 'Explore') {
-            iconName = focused ? Icons.ExploreActive : Icons.ExploreInactive;
-          } else if (route.name === 'QR') {
-            iconName = Icons.QrButton;
-          } else if (route.name === 'Coupons') {
-            iconName = focused ? Icons.CouponActive : Icons.CouponInactive;
-          } else if (route.name === 'Profile') {
-            iconName = focused ? Icons.ProfileActive : Icons.ProfileInactive;
+            return <Feather name="home" color={focused ? Colors.white : "grey"} size={25}/>
+          } else if (route.name === 'Payment') {
+            return <Feather name="send" color={focused ? Colors.white : "grey"} size={25}/>
+          } else if (route.name === 'Budget') {
+            return <Feather name="clock" color={focused ? Colors.white : "grey"} size={25}/>
+          } else if (route.name === 'Cards') {
+            return <Feather name="credit-card" color={focused ? Colors.white : "grey"} size={25}/>
+          } else if (route.name === 'More') {
+            return <Feather name="menu" color={focused ? Colors.white : "grey"} size={25}/>
           }
-
-          return (
-            <Image
-              source={iconName}
-              style={{
-                width: RF(26),
-                height: RF(26),
-                alignSelf: 'center',
-                resizeMode: 'contain',
-              }}
-            />
-          );
         },
       })}
       tabBarOptions={{
         showLabel: false,
         activeTintColor: '#fff',
+        style: {
+          backgroundColor: Colors.inputBack
+        }
       }}>
-      <Tab.Screen name="Home" component={AppScreens.Dashboard} />
-      <Tab.Screen name="Explore" component={AppScreens.Explore} />
+      <Tab.Screen name="Home" component={AppScreens.Home} />
+      <Tab.Screen name="Payment" component={AppScreens.Home} />
       <Tab.Screen
-        name="QR"
-        options={({route}) => ({
-          tabBarIcon: ({color, size}) => {
-            return (
-              <Image
-                source={Icons.QrButton}
-                style={{
-                  width: 60,
-                  height: 60,
-                  alignSelf: 'center',
-                  resizeMode: 'contain',
-                  top: -20,
-                }}
-              />
-            );
-          },
-        })}
-        component={AppScreens.QR}
+        name="Budget"
+        component={AppScreens.Home}
       />
-      <Tab.Screen name="Coupons" component={AppScreens.Coupons} />
-      <Tab.Screen name="Profile" component={ProfileStack} />
+      <Tab.Screen name="Cards" component={AppScreens.Home} />
+      <Tab.Screen name="More" component={AppScreens.Home} />
     </Tab.Navigator>
   );
 };
@@ -98,9 +53,6 @@ export default () => {
   return (
     <AppStack.Navigator headerMode="none">
       <AppStack.Screen name="Home" component={theBottomNav} />
-      <AppStack.Screen name="ExploreSearch" component={AppScreens.ExploreSearch} />
-      <AppStack.Screen name="Category" component={AppScreens.Category} />
-      <AppStack.Screen name="DealDetails" component={AppScreens.DealDetails} />
     </AppStack.Navigator>
   );
 };
